@@ -22,7 +22,8 @@ contract SantasListTest is Test {
     }
 
     function testCheckList() public {
-        vm.prank(santa);
+        address randomUser = address(1234);
+        vm.prank(randomUser);
         santasList.checkList(user, SantasList.Status.NICE);
         assertEq(uint256(santasList.getNaughtyOrNiceOnce(user)), uint256(SantasList.Status.NICE));
     }
